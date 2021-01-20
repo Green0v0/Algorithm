@@ -1,4 +1,0 @@
-import sys
-li = [3,4]
-print(li)
-print('시험용입니다')
