@@ -17,4 +17,4 @@ print(len(group))
 ## n = 5
 ## data = [2, 3, 1, 2, 2]
 ## 결과값 [[3,2,2],[2,1]]
-## len(ret) == 2
+## len(group) == 2
