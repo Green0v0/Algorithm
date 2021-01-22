@@ -1,3 +1,35 @@
+# 6th try:
+#         # 각 반복에서 제일 적은(맨 앞의) 음식량를 저장하면서
+#         # (제일 적은 음식량 * 남은 전체 음식 종류 수) 만큼
+#         # 시간 k도 줄이고 음식량도 동일하게 줄인다
+#         nowtot_food = 0
+#         while True:
+#             # 언제까지? sum보다  작아질 때까지, 즉 k가 더 작아지면 중단
+#             if food_sum < N * lftfd_lst[0][1]:
+#                 print("2:",food_sum, lftfd_lst[0][1])
+#                 break
+#             nowtot_food += lftfd_lst[0][1]
+#             food_sum -= N * nowtot_food
+#             print("1:",food_sum, lftfd_lst[0][1])
+#             k = food_sum
+#             lftfd_lst.pop(0)
+#             N -= 1
+            
+#         print("now:",nowtot_food)
+#         for i in range(len(lftfd_lst)):
+#             lftfd_lst[i][1] -= nowtot_food
+#         print("2:",len(lftfd_lst),lftfd_lst, k, food_sum)
+        
+#         return lftfd_lst[ k % len(lftfd_lst)][0] + 1
+
+
+
+
+
+
+
+
+
 # 5th try:
 
 # def solution(food_times, k):
@@ -37,6 +69,9 @@
     
 #     else:
 #         return -1
+
+
+
 
 
 
@@ -95,6 +130,8 @@
         return idx + 1
     else:
         return -1
+
+
 
 
 
