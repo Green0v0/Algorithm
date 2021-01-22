@@ -1,1 +1,48 @@
-# 아직 미작성
+def solution(food_times, k):
+    N = len(food_times)
+    # 무지가 먹어야 할 전체 음식량
+    food_sum = sum(food_times)
+    
+    # 효율성을 위해 음식량이 에러발생시간 이전에 끝나는 경우는 -1 리턴하고 제외
+    # 음식량이 그 시간 이후인 경우만 계산
+    if food_sum > k:
+        idx = 0
+        
+        while k:
+            food_times[idx] -= 1
+            idx = (idx + 1) % N
+            while not food_times[idx]:
+                idx = (idx + 1) % N
+            k -= 1
+            print(food_times, idx, k)
+            
+        return idx + 1
+    else:
+        return -1
+
+    
+#         2nd try
+#         lftfd_lst = []
+#         for food_idx, food_left in enumerate(food_times):
+#             lftfd_lst.append([food_idx,food_left])
+            
+#         idx = 0
+#         while True:
+#             # iteration 작업            
+#             lftfd_lst[idx%N][1] -= 1
+#             if not lftfd_lst[idx%N][1]:
+#                 lftfd_lst.pop(idx%N)
+#                 N -= 1
+#                 idx %= N
+#             else:
+#                 idx += 1
+                
+#             print("먹은후: ",lftfd_lst, idx, N)
+            
+#             k -= 1
+#             if not k:
+#                 break
+            
+#             print("다음 먹을: ",idx, N,'\n')
+            
+#         return lftfd_lst[idx][0] + 1
