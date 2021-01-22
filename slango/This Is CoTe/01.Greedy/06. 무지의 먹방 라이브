@@ -1,4 +1,51 @@
-#         4th try
+# 5th try:
+
+# def solution(food_times, k):
+#     N = len(food_times)
+#     # 무지가 먹어야 할 전체 음식량
+#     food_sum = sum(food_times)
+#     min_fd = min(food_times)
+#     lftfd_lst = []
+#     for time in enumerate(food_times):
+#         lftfd_lst.append(list(time))
+    
+#     # 효율성을 위해 음식량이 에러발생시간 이전에 끝나는 경우는 -1 리턴하고 제외
+#     # 음식량이 그 시간 이후인 경우만 계산
+#     if food_sum > k:
+#         # 언제? k가 (가장 적은 음식 * 전체 음식 개수) 이상일 동안
+#         while k>=min_fd*len(lftfd_lst):
+#             # 효율성을 위해 하나씩 비교하지 않고 전체중에서 가장 적은 음식을 
+#             # 전 인덱스에서 공통적으로 빼면서 반복
+#             k -= min_fd * len(lftfd_lst)
+#             for idx in range(len(lftfd_lst)):
+#                 lftfd_lst[idx][1] -= min_fd
+#             # 또한 효율성을 위하여 남은 음식이 없는 음식은 리스트에서 제거
+#             idx2 = 0
+#             while idx2<len(lftfd_lst):
+#                 if not lftfd_lst[idx2][1]:
+#                     lftfd_lst.pop(idx2)
+#                 else:
+#                     idx2 += 1
+#             # 제일 적은 음식 업데이트
+#             print(lftfd_lst)
+#             for i in lftfd_lst:
+#                 min_fd = min(min_fd,i[1])
+#             print(min_fd)
+        
+#         print(lftfd_lst, 'k: ',k)
+#         return lftfd_lst[k%len(lftfd_lst)][0] + 1
+    
+#     else:
+#         return -1
+
+
+
+
+
+
+
+
+#         4th try:
 #         lftfd_lst = []
 #         for times in enumerate(food_times):
 #             lftfd_lst.append(list(times))
@@ -25,8 +72,9 @@
 
 
 
+
 # 3rd Try
-def solution(food_times, k):
+# def solution(food_times, k):
     N = len(food_times)
     # 무지가 먹어야 할 전체 음식량
     food_sum = sum(food_times)
