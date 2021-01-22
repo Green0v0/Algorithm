@@ -1,3 +1,31 @@
+#         4th try
+#         lftfd_lst = []
+#         for times in enumerate(food_times):
+#             lftfd_lst.append(list(times))
+        
+#         # iteration 작업
+#         idx = 0
+#         while k:
+#             lftfd_lst[idx][1] -= 1
+#             if not lftfd_lst[idx][1]:
+#                 lftfd_lst.pop(idx)
+#                 N -= 1
+#             else:
+#                 idx += 1
+#             if idx>=N:
+#                 idx = 0
+                
+#             k -= 1
+#             print(lftfd_lst)
+            
+#         return lftfd_lst[idx][0] + 1
+
+
+
+
+
+
+# 3rd Try
 def solution(food_times, k):
     N = len(food_times)
     # 무지가 먹어야 할 전체 음식량
@@ -19,6 +47,11 @@ def solution(food_times, k):
         return idx + 1
     else:
         return -1
+
+
+
+
+
 
     
 #         2nd try
