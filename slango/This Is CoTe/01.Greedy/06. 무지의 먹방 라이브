@@ -1,3 +1,57 @@
+# 8th try:
+# def solution(food_times, k):
+#     N = len(food_times)
+#     # 무지가 먹어야 할 전체 음식량
+#     food_sum = sum(food_times)
+#     min_fd = min(food_times)
+    
+#     # [인덱스, 음식량] 을 원소로 리스트 생성
+#     lftfd_lst = []
+#     for time in enumerate(food_times):
+#         lftfd_lst.append(list(time))
+#     # 음식량 순서대로 정렬
+#     lftfd_lst = sorted(lftfd_lst, key = lambda x: x[1])
+#     print(lftfd_lst)
+    
+#     # 효율성을 위해 음식량이 에러발생시간 이전에 끝나는 경우는 -1 리턴하고 제외
+#     # 음식량이 그 시간 이후인 경우만 계산
+#     if food_sum > k:
+        
+#         now_fd = 0
+#         last_idx = 0
+        
+#         for i in lftfd_lst:
+#             print("for k:", k, "now_idx:",lftfd_lst.index(i), "food:",i[1])
+#             if k < (N-lftfd_lst.index(i)) * (i[1] - now_fd):
+#                 last_idx = lftfd_lst.index(i)
+#                 break
+#             if i[1] == now_fd:
+#                 continue
+# #             lftfd_lst.index(i)< N-1 and i[1] == lftfd_lst[lftfd_lst.index(i) + 1][1]:
+# #                 continue
+#             k -= (N-lftfd_lst.index(i)) * (i[1] - now_fd)
+#             now_fd = i[1]
+#             last_idx = lftfd_lst.index(i)
+#         print("afterfor, k:", k, "now last_idx:",last_idx, "food:",i[1])
+        
+#         lftfd_lst = lftfd_lst[last_idx:]
+#         print(last_idx, k, lftfd_lst)
+        
+#         lftfd_lst = sorted(lftfd_lst)
+#         print(lftfd_lst)
+        
+#         return lftfd_lst[k % len(lftfd_lst)][0] + 1
+#     else:
+#         return -1
+
+
+
+
+
+
+
+
+
 # 7th try:
 # def solution(food_times, k):
 #     N = len(food_times)
@@ -200,7 +254,7 @@
 
 
     
-#         2nd try
+# 2nd try
 #         lftfd_lst = []
 #         for food_idx, food_left in enumerate(food_times):
 #             lftfd_lst.append([food_idx,food_left])
