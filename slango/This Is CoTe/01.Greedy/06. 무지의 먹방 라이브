@@ -1,3 +1,64 @@
+# 7th try:
+# def solution(food_times, k):
+#     N = len(food_times)
+#     # 무지가 먹어야 할 전체 음식량
+#     food_sum = sum(food_times)
+#     min_fd = min(food_times)
+    
+#     # [인덱스, 음식량] 을 원소로 리스트 생성
+#     lftfd_lst = []
+#     for time in enumerate(food_times):
+#         lftfd_lst.append(list(time))
+#     # 음식량 순서대로 정렬
+#     lftfd_lst = sorted(lftfd_lst, key = lambda x: x[1])
+#     print(lftfd_lst)
+    
+#     # 효율성을 위해 음식량이 에러발생시간 이전에 끝나는 경우는 -1 리턴하고 제외
+#     # 음식량이 그 시간 이후인 경우만 계산
+#     if food_sum > k:
+#         idx = 0
+#         now_fd = 0
+#         tmp_N = N
+#         for i in lftfd_lst:
+#             print("for", k, tmp_N, i[1])
+#             if k < tmp_N * (i[1] - now_fd):
+#                 break
+#             k -= tmp_N * (i[1] - now_fd)
+#             now_fd = i[1]
+#             idx += 1
+#             while idx < len(lftfd_lst) - 1 and i[1] == lftfd_lst[idx + 1][1]:
+#                 idx += 1
+#             tmp_N = N - idx
+#         print("afterwhile", idx, k, lftfd_lst)
+        
+#         # 모든 원소를 위에서 k를 깎은만큼 같이 깎자
+# #         fir_fd = lftfd_lst[0][1]
+#         # print('decrease fd',fir_fd)
+#         # 무조건깎아야되는지 확인!
+# #         for i in range(len(lftfd_lst)):
+# #             lftfd_lst[i][1] -= fir_fd
+        
+# #         while True:
+# #             if lftfd_lst[0][1]<=0:
+# #                 lftfd_lst.pop(0)
+# #             else:
+# #                 break
+#         lftfd_lst = lftfd_lst[idx:]
+#         print(idx, k, lftfd_lst)
+#         lftfd_lst = sorted(lftfd_lst)    
+#         print(lftfd_lst)
+        
+#         return lftfd_lst[k % len(lftfd_lst)][0] + 1
+#     else:
+#         return -1
+
+
+
+
+
+
+
+
 # 6th try:
 #         # 각 반복에서 제일 적은(맨 앞의) 음식량를 저장하면서
 #         # (제일 적은 음식량 * 남은 전체 음식 종류 수) 만큼
