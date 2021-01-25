@@ -1,0 +1,16 @@
+def luc_str():
+    N = input("N:")
+    leng = len(N)//2
+    str_l = N[:leng]
+    str_r = N[leng:]
+    
+    sum_l = sum_r = 0
+    for i in str_l:
+        sum_l += int(i)
+    for i in str_r:
+        sum_r += int(i)
+        
+    if sum_l==sum_r:
+        return 'LUCKY'
+    else:
+        return 'READY'
