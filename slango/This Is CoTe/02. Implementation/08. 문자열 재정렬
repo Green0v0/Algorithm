@@ -1,0 +1,13 @@
+def re_str():
+    S = input("input S:")
+    alphas = strs = ''
+    sums = 0
+    for i in S:
+        if i.isalpha():
+            alphas += i
+        else:
+            sums += int(i)
+    alphas=sorted(alphas)
+    for i in alphas:
+        strs += i
+    return strs+str(sums)
