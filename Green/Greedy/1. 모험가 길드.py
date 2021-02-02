@@ -14,3 +14,17 @@ for i in range(N):
     cnt -= 1
 
 print(group)
+
+# 공포도가 오름차순으로 정렬되어 있다는 점에서 항상 최소한의 모험가의 수만 포함하여 그룹을 결정하게 된다.
+# 즉, 최대한 많은 그룹이 구성되는 방법
+n = int(input())
+data = list(map(int,input().split()))
+data.sort()
+result = 0 # 총 그룹수
+count = 0 # 모험가의 수
+for i in data:
+    count+=1
+    if count >= i:
+        result += 1
+        count = 0
+print(result)
