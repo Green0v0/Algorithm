@@ -18,3 +18,21 @@ elif cnt == 2 or cnt == 1:
     print(1)
 else:
     print(0)
+
+# 풀이
+data = input()
+count0 = 0 # 1>0으로 변하는 경우
+count1 = 0 # 0>1로 변하는 경우
+if data[0]=='1':
+    count0 += 1
+else:
+    count1 += 1
+for i in range(len(data)-1): # 범위가 이런 이유는 i+1까지 확인할 것이기 때문
+    if data[i] != data[i+1]:
+        # 다음 수에서 1로 바뀌는 경우
+        if data[i+1] == '1':
+            count0+=1
+        # 다음 수에서 0으로 바뀌는 경우
+        else:
+            count1+=1
+print(min(count0,count1))

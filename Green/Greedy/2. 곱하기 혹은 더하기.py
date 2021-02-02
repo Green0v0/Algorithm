@@ -11,3 +11,14 @@ for i in s:
     else:
         total *= int(i)
 print(total)
+
+# 풀이
+data = input()
+result = int(data[0]) # 내 풀이와 다른 점
+for i in range(1,len(data)):
+    num = int(data[i])
+    if num <= 1 or result <= 1:
+        result+=num
+    else:
+        result*=num
+print(result)
