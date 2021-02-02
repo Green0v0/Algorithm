@@ -13,3 +13,14 @@ for i in range(1,n+1):
         test[sum(j)] = 1
 test = test[1:]
 print(test.index(0)+1)
+
+# 해설
+n = int(input())
+data = list(map(int,input().split()))
+data.sort()
+target = 1 # 무조건 1로 시작
+for i in data:
+    if target < i:
+        break
+    target += i
+print(target)
