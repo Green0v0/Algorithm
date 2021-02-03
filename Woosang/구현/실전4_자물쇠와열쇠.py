@@ -21,7 +21,7 @@ def solution(key, lock):
 
     # 4가지 방향 확인
     for rotation in range(4):
-        rotate(key) # 열쇠 회전
+        key = rotate(key) # 열쇠 회전
         for x in range(l*2):
             for y in range(l*2):
                 # 자물쇠에 열쇠 넣기`
