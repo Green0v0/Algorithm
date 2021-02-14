@@ -4,18 +4,20 @@ input = sys.stdin.readline
 from collections import deque
 
 n, m, k, x = map(int, input().split())
-nodes = [[] for _ in range(n+1)] # 각 노드 리스트 생성
+
+# 각 노드 리스트 생성(인접리스트로 전환)
+nodes = [[] for _ in range(n+1)]
 for _ in range(m):
   a, b = map(int, input().split())
-  nodes[a].append(b) # 각 노드 리스트의 값을 삽입
+  nodes[a].append(b) # 각 노드(idx)별 val 삽입
 
-# 각 노드 거리 초기화 (방문하지 않은 곳 -1)
+# 노드 거리 초기화 (방문하지 않은 곳 -1)
 distince = [-1] * (n + 1) 
 distince[x] = 0
 dq = deque([x]) # 처음 위치를 받는다.
 
 while dq:
-  curr = dq.popleft() # 처음 위치 넘기기
+  curr = dq.popleft() # 매 순간 현재위치 정의
   for next_node in nodes[curr]: # 노드무리의 처음 위치 탐색
     if distince[next_node] == -1:
       # 방문하지 않은 곳이라면 거리를 저장
