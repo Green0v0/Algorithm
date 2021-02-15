@@ -1,12 +1,13 @@
 # 전체공간 빈곳 = 0 / 기둥 = 1 / 보 = 2 / 기둥+보 = 3
 # !!!좌표와 행열의 행번호는 위아래 반전임 유의!!!!
 
-# # 2nd try:
+maps = []
+
+# 2nd try:
 def ispsb(now_ans):
     # 이 함수가 실행될 때마다 모든 구조물에 대한 가능성을 확인하여
     # 전체 구조물에 대해 가능한 구조인지 확인
     for x, y, struct in now_ans: # 한개의 구조물씩 확인하는 이터레이션
-
         if struct == 0:
             if not y or [x-1, y, 1] in now_ans or [x, y, 1] in now_ans\
                     or [x, y-1, 0] in now_ans:
@@ -22,6 +23,8 @@ def ispsb(now_ans):
     return True
 
 def solution(n, build_frame):
+    global maps
+    maps = [[0] * (n+1) for _ in range(n+1)]
     now_ans = []
     for frame in build_frame:
         x, y, stuff, operate = frame
@@ -30,11 +33,13 @@ def solution(n, build_frame):
             if not ispsb(now_ans):
                 now_ans.append([x, y, stuff])
         elif operate == 1:
+
+            maps[y][x] += frame[2]+1
+
             now_ans.append([x, y, stuff])
             if not ispsb(now_ans):
                 now_ans.remove([x, y, stuff])
     return sorted(now_ans)
-
 
 n1 = 5
 bf = [[0, 0, 0, 1], [2, 0, 0, 1], [4, 0, 0, 1], [0, 1, 1, 1], [1, 1, 1, 1], [2, 1, 1, 1], [3, 1, 1, 1], [2, 0, 0, 0],
@@ -42,11 +47,12 @@ bf = [[0, 0, 0, 1], [2, 0, 0, 1], [4, 0, 0, 1], [0, 1, 1, 1], [1, 1, 1, 1], [2, 
 
 print(solution(n1, bf))
 
+
 # # 1st try:
 # # 이 과정에서는 한 구조물을 설치하거나 삭제할 때 해당 구조물만 가능한지 확인하려 했으나,
 # # 이외의 구조물에 대한 가능성을 확인하지 못하여 실패
-# board = []
 #
+# board = []
 #
 # def ispsb(struct):
 #     global board
@@ -73,6 +79,7 @@ print(solution(n1, bf))
 #                 return True
 #             else:
 #                 return False
+#
 #
 #
 # def solution(n, build_frame):
@@ -128,3 +135,4 @@ print(solution(n1, bf))
 #
 #     answer.sort()
 #     return answer
+
