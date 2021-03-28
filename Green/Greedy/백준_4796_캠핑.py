@@ -6,5 +6,6 @@ while True:
     # 연속 사용 일
     n = v // p
     answer = (n * l) +(v - ((v//p)*p))
-
+    # if answer > 0:
+        # print(answer)
     print(answer)
