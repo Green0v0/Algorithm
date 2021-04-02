@@ -1,24 +1,29 @@
 # 원형 : %3 해서 2(=len(food_times)-1)가 될 때 인덱스 0으로 돌아감
-food_times = [3,1,2]
-idx = 0
-k = 5
-while k != 0:
-    print(food_times)
-    print('idx',idx)
-    print('k',k)
-    if food_times == [0]*len(food_times):
-        print(-1)
-        break # return -1
-    # 값이 0이면 다음 리스트로
-    if food_times[idx%3] == 0:
-        idx+=1
-        continue
-    else:
-        food_times[idx%3] -= 1
-        idx += 1
+# 첫 풀이
+from collections import deque
+def solution(food_times, k):
+    if sum(food_times) <= k:
+        return -1
+
+    dq = deque(food_times)
+    aq = deque(list(range(1, len(food_times) + 1)))
+
+    while k != 0:
+        if dq[0] == 0:
+            dq.append(dq.popleft())
+            aq.append(aq.popleft())
+            continue
+        dq[0] = dq[0] - 1
+        dq.append(dq.popleft())
+        aq.append(aq.popleft())
         k -= 1
-print(food_times)
-print(food_times[idx%3])
+    while True:
+        if dq[0] == 0:
+            dq.popleft()
+            aq.popleft()
+        else:
+            break
+    return aq[0]
 
 # 해답
 import heapq
