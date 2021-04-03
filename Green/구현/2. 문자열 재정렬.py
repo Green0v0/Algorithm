@@ -6,6 +6,6 @@ for i in s:
     if i.isdigit():
         total += int(i)
     else:
-        answer+=i
+        answer += i
 
 print(answer + str(total))
