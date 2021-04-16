@@ -1,4 +1,4 @@
-def solution(new_id):    
+def solution(new_id):
     # 1단계
     new_id = new_id.lower()
 
@@ -16,6 +16,7 @@ def solution(new_id):
             and not char.islower() and not char.isdigit():
             to_del_lst.append(char)
     to_del_lst = ''.join(to_del_lst)
+
     table = str.maketrans(to_del_lst, ' '*len(to_del_lst))
     new_id = new_id.translate(table)
     new_id = new_id.replace(' ', '')
