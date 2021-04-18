@@ -4,21 +4,31 @@ graph = []
 for i in range(N):
     graph.append(list(map(int, input().split())))
 
+
+def count0(graph):
+    cnt = 0
+    for gra in graph:
+        cnt += gra.count(0)
+    return cnt
+
+
 answer = 0
-now_graph = []
+now_graph = [[0]*M for _ in range(N)]
 
 def dfswall(wall):
+    global answer
     if wall < 3:
         for i in range(N):
             for j in range(M):
-                if graph[i][j] == 0:
+                 if graph[i][j] == 0:
                     graph[i][j] = 1
                     dfswall(wall+1)
                     graph[i][j] = 0
     else:
-        global answer
-        global now_graph
-        now_graph = graph.copy()
+        # 깊은 복사
+        for i in range(N):
+            for j in range(M):
+                now_graph[i][j] = graph[i][j]
         for i in range(N):
             for j in range(M):
                 if now_graph[i][j] == 2:
@@ -30,22 +40,12 @@ def dfswall(wall):
         
 
 def dfsvir(x, y):
-    global now_graph
-    if x<= -1 or x>=N or y<=-1 or y>=M:
-        return False
-    if now_graph[x][y] == 0:
+    if x in range(N) and y in range(M) and now_graph[x][y] == 0:
         now_graph[x][y] = 2
         dfsvir(x-1, y)
         dfsvir(x+1, y)
         dfsvir(x, y-1)
         dfsvir(x, y+1)
-
-
-def count0(graph):
-    cnt = 0
-    for gra in graph:
-        cnt += gra.count(0)
-    return cnt
             
     
 dfswall(0)
