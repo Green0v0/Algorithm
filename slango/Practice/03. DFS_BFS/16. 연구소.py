@@ -4,7 +4,7 @@ graph = []
 for i in range(N):
     graph.append(list(map(int, input().split())))
 
-
+# 현재 지도상 남아있는 0 개수
 def count0(graph):
     cnt = 0
     for gra in graph:
@@ -13,7 +13,8 @@ def count0(graph):
 
 
 answer = 0
-now_graph = [[0]*M for _ in range(N)]
+# 각각 벽을 세운 후 그려진 맵(깊은 복사)
+now_graph = [[0]*M for _ in range(N)] 
 
 def dfswall(wall):
     global answer
@@ -38,7 +39,7 @@ def dfswall(wall):
                     dfsvir(i, j+1)
         answer =  max(answer, count0(now_graph))
         
-
+# 바이러스 퍼트리기 dfs
 def dfsvir(x, y):
     if x in range(N) and y in range(M) and now_graph[x][y] == 0:
         now_graph[x][y] = 2
