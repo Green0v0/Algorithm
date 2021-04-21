@@ -15,7 +15,7 @@ def solution(n, weak, dist):
     
     # dist 모든 경우의 수 설정 extend를 이용해 2차원으로 만들기
     check_list = []
-    for i in range(len(dist)):
+    for i in range(1, len(dist)+1):
         checks = list(permutations(dist[:i], i))
         check_list.extend(checks)
         
@@ -29,23 +29,24 @@ def solution(n, weak, dist):
                 # checks의 원소 하나하나 확인
                 # 시작값과 친구 이동거리 더해서 끝값 설정
                 end = start + check
-                for w_idx in range(start_idx, len(weak)):
+                for weak_idx in range(start_idx, len(weak)):
                     # 시작idx부터 시작하여 효율성 높이기
                     # weak를 전부 확인하기
-                    if start <= weak[w_idx] <= end:
+                    if start <= weak[weak_idx] <= end:
                         # start와 end 사이에 있으면 방문체크
-                        visit[w_idx%weak_len] = True
-                    elif end < weak[w_idx]:
-                        # end 보다 높으면 start 재설정 후 다음 친구 ㄱㄱ
-                        start = weak[w_idx]
+                        visit[weak_idx%weak_len] = True
+                    elif end < weak[weak_idx]:
+                        # end 보다 높으면 start와 start_idx 재설정 후 다음 친구 ㄱㄱ
+                        start_idx = weak_idx
+                        start = weak[weak_idx]
                         break
+                    # 모든 방문이 끝났다면 끝~!
                     if False not in visit:
-                        # 모든 방문이 끝났다면 끝~!
                         return len(checks)
     # 전부 확인했지만 없으면 -1...
     return -1
 
 n = 12
-weak = [1,3,4,9,10]
-dist = [3,5,7]
+weak = [1,5,6,10]
+dist = [1,2,3,4]
 print(solution(n, weak, dist))
