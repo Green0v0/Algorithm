@@ -4,36 +4,84 @@
 # 2 3
 # 2 4
 
-# 2nd try: 답지 참고
+# 3rd try:
 from collections import deque
+n, m, k, x = map(int, input().split())
+
+graph = {key:[] for key in range(n+1)}
+for _ in range(m):
+    a, b = map(int, input().split())
+    graph[a].append(b)
+
+# vstd = [False] * (n+1)
+dist = [-1] * (n+1)
+dist[x] = 0
+que = deque([x])
+while que:
+    now_node= que.popleft()
+    for next_node in graph[now_node]:
+        # dist[next_node] = min(dist[now_node]+1, dist[next_node])
+        if dist[next_node] == -1:
+            dist[next_node] = dist[now_node] + 1
+        que.append(next_node)
+
+chk = False
+for i in range(len(dist)):
+    if dist[i] == k:
+        print(i)
+        chk = True
+if not chk:
+    print(-1)
 
 
-def solution():
-    n, m, k, x = map(int, input("N,M,K,X: ").split())
-    graph = [[] for _ in range(n+1)]
 
-    for _ in range(m):
-        a, b = map(int, input().split())
-        graph[a].append(b)
 
-    dist = [-1] * (n+1)
-    dist[x] = 0
 
-    queue = deque([x])
-    while queue:
-        v = queue.popleft()
-        for next_node in graph[v]:
-            if dist[next_node] == -1:
-                dist[next_node] = dist[v] + 1
-                queue.append(next_node)
-    chk = False
-    for i in range(1, n+1):
-        if dist[i] == k:
-            print(i)
-            chk = True
 
-    if chk == False:
-        print(-1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # 2nd try: 답지 참고
+# from collections import deque
+
+
+# def solution():
+#     n, m, k, x = map(int, input("N,M,K,X: ").split())
+#     graph = [[] for _ in range(n+1)]
+
+#     for _ in range(m):
+#         a, b = map(int, input().split())
+#         graph[a].append(b)
+
+#     dist = [-1] * (n+1)
+#     dist[x] = 0
+
+#     queue = deque([x])
+#     while queue:
+#         v = queue.popleft()
+#         for next_node in graph[v]:
+#             if dist[next_node] == -1:
+#                 dist[next_node] = dist[v] + 1
+#                 queue.append(next_node)
+#     chk = False
+#     for i in range(1, n+1):
+#         if dist[i] == k:
+#             print(i)
+#             chk = True
+
+#     if chk == False:
+#         print(-1)
 
 
 # from collections import deque
@@ -96,10 +144,6 @@ def solution():
 #     # idxd_roads.append(tmp)
 #
 #     bfs(1, k)
-
-
-solution()
-
 
 
 
