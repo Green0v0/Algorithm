@@ -5,12 +5,14 @@
 # 2 4
 
 # 3rd try:
+import sys
 from collections import deque
 n, m, k, x = map(int, input().split())
 
 graph = {key:[] for key in range(n+1)}
 for _ in range(m):
-    a, b = map(int, input().split())
+    a, b = map(int, sys.stdin.readline().rstrip().split())
+    # 도로 개수 m: 1 ~ 1,000,000개라 위의 입력 방식으로
     graph[a].append(b)
 
 # vstd = [False] * (n+1)
@@ -23,7 +25,7 @@ while que:
         # dist[next_node] = min(dist[now_node]+1, dist[next_node])
         if dist[next_node] == -1:
             dist[next_node] = dist[now_node] + 1
-        que.append(next_node)
+            que.append(next_node)
 
 chk = False
 for i in range(len(dist)):
@@ -32,7 +34,6 @@ for i in range(len(dist)):
         chk = True
 if not chk:
     print(-1)
-
 
 
 
