@@ -3,6 +3,9 @@ max_x = float('-inf') # -무한대
 min_y = float('inf') # 무한대
 # min_y = 1000000000
 # (1 ≤ si ≤ ei ≤ 100,000)
+# 2 5
+# 1 3
+# -> 0
 for i in range(n):
     x, y = map(int,input().split())
     # 최소의 최대, 최대의 최소
