@@ -16,11 +16,11 @@ vstd_dfs = [False] * (n+1)
 stck = [v]
 dfs_ans = []
 while stck:
-    nxt_node = stck.pop()
-    if not vstd_dfs[nxt_node]:
-        vstd_dfs[nxt_node] = True
-        stck.extend(sorted(graph[nxt_node], key=lambda x: -x))
-        dfs_ans.append(nxt_node)
+    now_node = stck.pop()
+    if not vstd_dfs[now_node]:
+        vstd_dfs[now_node] = True
+        stck.extend(sorted(graph[now_node], key=lambda x: -x))
+        dfs_ans.append(now_node)
 
 for i in dfs_ans:
     print(i, end=' ')
