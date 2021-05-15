@@ -1,15 +1,20 @@
 from collections import deque
-# BFS
-# def BFS(visited, board, i, j):
-#     dq = deque((i, j))
 
 N, M = map(int, input().split())
 board = []
 for _ in range(N):
     board.append(list(input().rstrip()))
+"""
+4 6
+101111
+201010
+301011
+411011
+"""
 
 visited = [[False] * M for _ in range(N)]
 dq = deque([(0,0)])
+
 board[0][0] = 1
 visited[0][0] = True
 
